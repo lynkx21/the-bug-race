@@ -1,4 +1,3 @@
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
 namespace Jam.Audio {
@@ -7,11 +6,10 @@ namespace Jam.Audio {
 
         public AudioClip soundtrack;
         public AudioClip scream;
-        public AudioClip playerDeath;
+        public AudioClip death;
         
         private AudioSource _effectsSource;
         private AudioSource _soundtrackSource;
-        private AudioSource _playerDeathSource;
 
         private void Awake() {
             if (instance == null) {
@@ -36,9 +34,6 @@ namespace Jam.Audio {
             
             // Effects
             _effectsSource = gameObject.AddComponent<AudioSource>();
-
-            // Player Death
-            _playerDeathSource = gameObject.AddComponent<AudioSource>();
         }
 
         private void PlaySoundtrack() {
@@ -47,6 +42,11 @@ namespace Jam.Audio {
 
         public void PlayScream() {
             _effectsSource.clip = scream;
+            _effectsSource.Play();
+        }
+
+        public void PlayDeath() {
+            _effectsSource.clip = death;
             _effectsSource.Play();
         }
     }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Assets.Scripts.Player;
+using Jam.Audio;
 using UnityEngine;
 
 public class AudioPlayer : MonoBehaviour {
@@ -28,6 +29,7 @@ public class AudioPlayer : MonoBehaviour {
         _fear = GetComponent<Fear>();
 
         _health.HitEvent += Punch;
+        _health.DeathEvent += Death;
         _health.GainLifeEvent += OnGainLife;
         _shoot.Fire += Fire;
         _fart.Fire += Fire;
@@ -38,6 +40,10 @@ public class AudioPlayer : MonoBehaviour {
         _audioSource.volume = punchVolume;
         _audioSource.clip = punchClips[Random.Range(0, punchClips.Count)];
         _audioSource.Play();
+    }
+
+    private static void Death() {
+        SoundManager.instance.PlayDeath();
     }
 
     private void Fire(int fireType) {
