@@ -14,7 +14,7 @@ public class ControlsUI : MonoBehaviour
             "PRIMARY SHOOT\t\t\n" +
             "SPACEBAR or LEFT CLICK\n\n" +
             "SECONDARY SHOOT\t\t\t\n" +
-            "LEFT ALT or RIGHT CLICK";            ;
+            "C or RIGHT CLICK";
         title.text = UIHelper.WriteStringToFont("Controls".ToUpper());
         controls.text = UIHelper.WriteStringToFont(controlsString.ToUpper());
         bottom.text = UIHelper.WriteStringToFont("Press ESC to exit menu".ToUpper());
